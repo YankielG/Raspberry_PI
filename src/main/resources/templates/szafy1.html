@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/szablon :: szablon(~{::.container})}">
+<body>
+
+<div class="container">
+    <div class="uk-panel">
+        <img class="uk-align-left uk-margin-remove-adjacent" src="/tlo.JPG" width="60" height="28" alt="info">
+        <h2 class="uk-heading-divider" th:text="#{opcje.tytul.szafy}" style="position:center;"></h2>
+    </div>
+
+    <!--            <span uk-icon="icon: info" uk-tooltip="Info"></span>-->
+    <!--            <div uk-drop="animation: uk-animation-slide-top-small; duration: 1000">-->
+    <!--                <div class="uk-card uk-card-body uk-card-default">-->
+    <!--                    <p>Nazwa - nazwa sterowanej szafy.</p>-->
+    <!--                    <p>Od LED - nr. początkowej diody led w sterowanej szafie.</p>-->
+    <!--                    <p>Do LED - nr. końcowej diody led w sterowanej szafie.</p>-->
+    <!--                    <p>Opis - adnotacja do szafy.</p>-->
+    <!--                </div>-->
+    <!--            </div>-->
+
+    <!--            <span uk-icon="icon: info" uk-tooltip="Info" uk-toggle="target: #toggle-animation-multiple; animation:  uk-animation-slide-left, uk-animation-slide-bottom hide"></span>-->
+    <!--            <div id="toggle-animation-multiple" class="uk-card uk-card-default uk-card-body uk-margin-small">      <p>Prawidłowa temperatura ciała człowieka waha się w zakresie od 36 – 37°C, za umowną (uśrednioną wartość) uznaje się 36,6 °C.</p>-->
+    <!--                <p>Nazwa - nazwa sterowanej szafy.</p>-->
+    <!--                <p>Od LED - nr. początkowej diody led w sterowanej szafie.</p>-->
+    <!--                <p>Do LED - nr. końcowej diody led w sterowanej szafie.</p>-->
+    <!--                <p>Opis - adnotacja do szafy.</p>-->
+    <!--            </div>-->
+
+    <a uk-icon="info" uk-tooltip="Info" href="#modal-center" uk-toggle></a>
+    <div id="modal-center" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+            <!--            <button class="uk-modal-close-default" type="button" uk-close></button>-->
+            <p>Nazwa - nazwa sterowanej szafy.</p>
+            <p>Od LED - nr. początkowej diody led w sterowanej szafie.</p>
+            <p>Do LED - nr. końcowej diody led w sterowanej szafie.</p>
+            <p>Opis - adnotacja do szafy.</p>
+        </div>
+    </div>
+
+    <a th:href="@{/opcje/szafy/wstaw}" uk-icon="icon: copy" uk-tooltip="Dodaj"></a>
+    <a th:href="@{/opcje/szafy/czysc}" uk-icon="icon: trash" uk-tooltip="Wyczyść"></a>
+    <table class="uk-table uk-table-striped uk-table-hover uk-table-small" uk-sortable>
+        <thead>
+        <tr>
+            <!--            <th>Id</th>-->
+            <th>Id <a sd:pagination-sort="id" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <!--            <th th:colspan="2"></th>-->
+            <!--            <th>Wybór</th>-->
+            <th>Wybór <a sd:pagination-sort="wybor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <!--            <th>Nazwa</th>-->
+            <th>Nazwa <a sd:pagination-sort="szafa" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <!--            <th>Od LED</th>-->
+            <th>Od LED <a sd:pagination-sort="od_led" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <th>Do LED</th>
+            <th>Do LED <a sd:pagination-sort="do_led" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <!--            <th>Opis</th>-->
+            <th>Opis <a sd:pagination-sort="opis" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <th>Opcje</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="element : ${lista}">
+            <td th:text="${element.id}"></td>
+            <td><input class="uk-checkbox" type="checkbox"></td>
+            <td th:text="${element.szafa}"></td>
+            <td th:text="${element.od_led}"></td>
+            <td th:text="${element.do_led}"></td>
+            <td th:text="${element.opis}"></td>
+            <td>
+                <a th:href="@{/opcje/szafy/edytuj/{id} (id=${element.id})}" uk-icon="icon: file-edit" uk-tooltip="Edytuj"></a>
+                <a th:href="@{/opcje/szafy/szczegoly/{id} (id=${element.id})}" uk-icon="icon: info" uk-tooltip="Szczegóły"></a>
+                <a th:href="@{/opcje/szafy/usun/{id} (id=${(element.id)})}" uk-icon="icon: trash" uk-tooltip="Usuń"></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--            <div class="col-sm-6">-->
+    <!--                <div sd:pagination-summary="">info</div>-->
+    <!--            </div>-->
+    <!--            <div class="col-sm-6">-->
+    <!--                <nav class="pull-right">-->
+    <!--                    <ul class="uk-pagination uk-flex-center" sd:pagination="full">-->
+    <!--                        <li class="uk-disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>-->
+    <!--                        <li class="uk-active"><a href="#">1<span class="sr-only"></span></a></li>-->
+    <!--                    </ul>-->
+    <!--                </nav>-->
+    <!--            </div>-->
+
+    <div class="uk-padding"></div>
+
+</div>
+
+</body>
+</html>

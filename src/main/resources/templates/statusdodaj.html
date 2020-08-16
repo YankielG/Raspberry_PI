@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/szablon :: szablon(~{::.container})}">
+<body>
+
+<div class="container">
+    <div class="uk-panel">
+        <img class="uk-align-left uk-margin-remove-adjacent" src="/tlo.JPG" width="60" height="28" alt="info">
+    <h2 class="uk-heading-divider" th:text="#{status.tytul.dodaj}" style="position:center;"></h2>
+    </div>
+    <form style="width:300px; margin: auto" th:object="${statusdodaj}" th:action="@{/status/zapisz}" method="post">
+        <div class="uk-margin">
+            <label>Szafa</label>
+            <input th:field="*{nazwa}" type="text"  class="uk-input" required="required">
+        </div>
+        <div>
+        <label>Od LED</label>
+            <input th:field="*{od_led}" type="number"  class="uk-input" step="1" min="1" max="900" required="required">
+        </div>
+        <div>
+        <label>Do LED</label>
+            <input th:field="*{do_led}" type="number"  class="uk-input" step="1" min="1" max="900" required="required">
+        </div>
+
+        <div class="uk-margin">
+            <label>Kolor</label>
+            <input th:field="*{kolor}" type="text"  class="uk-input" required="required">
+        </div>
+
+        <div class="uk-margin">
+            <label>RGB</label>
+            <input th:field="*{skladnik_calosc}" type="text"  class="uk-input" required="required">
+        </div>
+
+        <div class="uk-margin">
+            <label>Opis</label>
+            <textarea th:field="*{opis}" class="uk-textarea" rows="2"></textarea>
+        </div>
+
+        <div class="uk-margin">
+            <label>Komentarz</label>
+            <textarea th:field="*{komentarz}" class="uk-textarea" rows="4"></textarea>
+        </div>
+        <input th:field="*{id}" type="number" hidden>
+
+<!--        <a th:href="@{/status}" class="uk-icon-link uk-margin-small-right" uk-icon="close" uk-tooltip="Anuluj"></a>-->
+<!--        <a th:href="@{/status/wstaw}" class="uk-icon-link uk-margin-small-right" uk-icon="trash"uk-tooltip="Wyczyść"></a>-->
+<!--        <a th:href="@{/status/zapisz}" class="uk-icon-link uk-margin-small-right" uk-icon="check" th:type="submit" uk-tooltip="Zapisz"></a>-->
+        <a th:href="@{/status}"><input class="uk-button uk-button-danger" type="button" value="Anuluj"></a>
+        <input class="uk-button uk-button-primary" type="submit" value="Zapisz">
+
+    </form>
+
+
+    <div class="uk-padding"></div>
+</div>
+
+</body>
+</html>

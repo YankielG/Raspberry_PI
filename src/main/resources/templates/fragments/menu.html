@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec= "http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<body>
+
+<nav th:fragment="menu1" class="uk-navbar-container" uk-navbar uk-sticky>
+    <div class="uk-navbar-center">
+        <a th:href="@{/index}" class="uk-navbar-item uk-logo" sec:authorize="isAuthenticated()"><span sec:authentication="name">L</span></a>
+        <ul class="uk-navbar-nav">
+            <!--            <li class="uk-parent" th:classappend="${title==#{temperatura.tytul.calosc} ? 'uk-active':''}"><a th:href="@{/temperatura}">Temperatura</a></li>-->
+            <li class="uk-parent"><a th:href="@{/status}">Status</a></li>
+            <li class="uk-parent"><a th:href="@{/opcje/tasma}" sec:authorize="hasAnyAuthority('MANAGER','ADMIN')">Tasma LED</a></li>
+            <li class="uk-parent"><a th:href="@{/opcje/kolory}" sec:authorize="hasAnyAuthority('MANAGER','ADMIN')">Kolory</a></li>
+            <li class="uk-parent"><a th:href="@{/opcje/szafy}" sec:authorize="hasAnyAuthority('MANAGER','ADMIN')">Szafy</a></li>
+            <li class="uk-parent"><a th:href="@{/opcje/konto}" sec:authorize="hasAnyAuthority('MANAGER','ADMIN')">Konto</a></li>
+            <li class="uk-parent"><a th:href="@{/opcje/Profil}">Profil</a></li>
+            <li class="uk-parent"><a th:href="@{/info}">Info</a></li>
+            <li class="uk-parent"><a th:href="@{/opcje/info}">Info</a></li>
+        </ul>
+    </div>
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+<!--            <li class="uk-parent"><a th:href="@{/}">Wyloguj</a></li>-->
+            <a class="uk-parent" style="margin-left: 30px" th:href="@{/}" uk-icon="icon:  sign-out; ratio: 1.1" uk-tooltip="Wyloguj"></a>
+        </ul>
+    </div>
+</nav>
+
+
+<nav th:fragment="menu2" class="uk-navbar-container" uk-navbar uk-sticky>
+
+    <div class="uk-navbar-center nav-overlay">
+        <a th:href="@{/index}" class="uk-navbar-item uk-logo" sec:authorize="isAuthenticated()"><span sec:authentication="name">L</span></a>
+        <ul class="uk-navbar-nav">
+            <li class="uk-parent"><a th:href="@{/status}">Status</a></li>
+            <li class="uk-parent"><a th:href="@{/info}">Info</a></li>
+            <li>
+                <a href="#">Opcje</a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li sec:authorize="hasAnyAuthority('MANAGER','USER')"><a th:href="@{/opcje/tasma}">Tasma LED</a></li>
+                        <li sec:authorize="hasAnyAuthority('MANAGER','USER')"><a th:href="@{/opcje/kolory}">Kolory</a></li>
+                        <li sec:authorize="hasAnyAuthority('MANAGER','USER')"><a th:href="@{/opcje/szafy}">Szafy</a></li>
+<!--                        <li sec:authorize="hasAnyAuthority('MANAGER','USER')"><a th:href="@{/opcje/konto}">Konto</a></li>-->
+                        <li sec:authorize="hasAnyAuthority('MANAGER','USER')"><a th:href="@{/opcje/info}">Info</a></li>
+                        <li class="uk-parent"><a th:href="@{/opcje/profil}">Profil</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+<!--         <span class="uk-navbar-item" style="margin-left: 100px" sec:authentication="principal.username"></span>-->
+         <span class="uk-navbar-item" style="margin-left: 100px" sec:authorize="hasAnyAuthority('ADMIN')">Administrator</span>
+         <span class="uk-navbar-item" style="margin-left: 100px" sec:authorize="hasAnyAuthority('MANAGER')">Moderator</span>
+         <span class="uk-navbar-item" style="margin-left: 100px" sec:authorize="hasAnyAuthority('USER')">Użytkownik</span>
+         <span class="uk-navbar-item" style="margin-left: 100px" sec:authorize="hasAnyAuthority('DEV')">Developer</span>
+        <span class="uk-navbar-item" th:text="${#calendars.format(#calendars.createNow(), 'dd MMMM yyyy')}"></span>
+        <a th:href="@{/}" uk-icon="icon:  sign-out; ratio: 1.1" uk-tooltip="Wyloguj"></a>
+
+    </div>
+
+</nav>
+
+
+<nav th:fragment="menu3" class="uk-navbar-container uk-section-xsmall" uk-navbar>
+    <div class="uk-navbar-left">
+        <div th:fragment="menu" class="uk-width-1-2@s uk-width-2-5@m" uk-sticky>
+            <ul class="uk-nav uk-nav-default">
+                <li class="uk-active"><a th:href="@{/index}" class="uk-navbar-item uk-logo" sec:authorize="isAuthenticated()"><span sec:authentication="name">L</span></a></li>
+                <li><a th:href="@{/status}">Status/a></li>
+                <li><a th:href="@{/opcje/tasma}">Tasma LED</a></li>
+                <li><a th:href="@{/opcje/kolory}">Kolory</a></li>
+                <li><a th:href="@{/opcje/szafy}">Szafy</a></li>
+                <li><a th:href="@{/opcje/konto}">Konto</a></li>
+                <li><a th:href="@{/opcje/profil}">Profil</a></li>
+<!--                <li sec:authorize="hasAnyAuthority('MANAGER','ADMIN')"><a th:href="@{/opcje}">Opcje</a></li>-->
+                <li><a th:href="@{/info}">Info</a></li>
+                <li><a th:href="@{/opcje/info}">Info</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+            <a class="uk-parent" style="margin-left: 30px" th:href="@{/}" uk-icon="icon:  sign-out; ratio: 1.1" uk-tooltip="Wyloguj"></a>
+        </ul>
+    </div>
+</nav>
+
+</body>
+</html>

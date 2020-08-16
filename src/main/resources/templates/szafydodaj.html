@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/szablon :: szablon(~{::.container})}">
+<body>
+
+<div class="container">
+    <div class="uk-panel">
+        <img class="uk-align-left uk-margin-remove-adjacent" src="/tlo.JPG" width="60" height="28" alt="info">
+    <h2 class="uk-heading-divider" th:text="#{opcje.tytul.szafy.dodaj}" style="position:center;"></h2>
+    </div>
+    <form style="width:300px; margin: auto" th:object="${szafydodaj}" th:action="@{/opcje/szafy/zapisz}" method="post">
+        <div class="uk-margin">
+            <label>Nazwa</label>
+            <input th:field="*{szafa}" type="text"  class="uk-input" required="required">
+        </div>
+
+        <div class="uk-margin">
+            <label>Od LED</label>
+            <Input th:field="*{od_led}" type="number" class="uk-input" step="1" min="1" max="900" required="required">
+        </div>
+
+        <div class="uk-margin">
+            <label>Do LED</label>
+            <Input th:field="*{do_led}" type="number" class="uk-input" step="1" min="1" max="900" required="required">
+        </div>
+
+        <div class="uk-margin">
+            <label>Opis</label>
+            <textarea th:field="*{opis}" class="uk-textarea" rows="4"></textarea>
+        </div>
+        <input th:field="*{id}" type="number" hidden>
+
+<!--        <a th:href="@{/szafy}" class="uk-icon-link uk-margin-small-right" uk-icon="close" uk-tooltip="Anuluj"></a>-->
+<!--        <a th:href="@{/szafy/wstaw}" class="uk-icon-link uk-margin-small-right" uk-icon="trash" uk-tooltip="Wyczyść"></a>-->
+<!--        <a th:href="@{/szafy/zapisz}" class="uk-icon-link uk-margin-small-right" uk-icon="check" th:type="submit" uk-tooltip="Zapisz"></a>-->
+        <a th:href="@{/opcje/szafy}"><input class="uk-button uk-button-danger" type="button" value="Anuluj"></a>
+        <input class="uk-button uk-button-primary" type="submit" value="Zapisz">
+
+    </form>
+
+
+    <div class="uk-padding"></div>
+
+</div>
+
+</body>
+</html>

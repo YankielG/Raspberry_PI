@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/szablon :: szablon(~{::.container})}">
+<body>
+
+    <div class="container">
+            <div class="uk-panel">
+                <img class="uk-align-left uk-margin-remove-adjacent" src="/tlo.JPG" width="60" height="28" alt="info">
+                <h2 class="uk-heading-divider" th:text="#{opcje.tytul.tasma}" style="position:center;"></h2>
+            </div>
+
+<!--            <span uk-icon="icon: info" uk-tooltip="Info"></span>-->
+<!--            <div uk-drop="animation: uk-animation-slide-top-small; duration: 1000">-->
+<!--                <div class="uk-card uk-card-body uk-card-default">-->
+<!--                    <p>Ilość -  całkowita ilość ledów podpięta do sterownika.</p>-->
+<!--                    <p>Opis - adnotacja do ilości ledów.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--                <span uk-icon="icon: info" uk-tooltip="Info" uk-toggle="target: #toggle-animation-multiple; animation:  uk-animation-slide-left, uk-animation-slide-bottom hide"></span>-->
+<!--                <div id="toggle-animation-multiple" class="uk-card uk-card-default uk-card-body uk-margin-small">-->
+<!--                    <p>Ilość -  całkowita ilość ledów podpięta do sterownika.</p>-->
+<!--                    <p>Opis - adnotacja do ilości ledów.</p>-->
+<!--                </div>-->
+
+            <a uk-icon="info" uk-tooltip="Info" href="#modal-center" uk-toggle></a>
+            <div id="modal-center" class="uk-flex-top" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                    <p>Ilość -  całkowita ilość ledów podpięta do sterownika.</p>
+                    <p>Opis - adnotacja do ilości ledów.</p>
+                    </ul>
+                </div>
+            </div>
+
+            <a th:href="@{/opcje/tasma/wstaw}" uk-icon="icon: copy" uk-tooltip="Dodaj"></a>
+            <a th:href="@{/opcje/tasma/czysc}" uk-icon="icon: trash" uk-tooltip="Wyczyść"></a>
+            <table class="uk-table uk-table-striped uk-table-hover uk-table-small" uk-sortable>
+                <thead>
+                <tr>
+                    <th class="uk-table-shrink">Id</th>
+<!--                    <th>Id <a sd:pagination-sort="id" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
+                    <!--            <th th:colspan="2"></th>-->
+                    <th>Wybór</th>
+<!--                    <th>Wybór <a sd:pagination-sort="wybor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
+                    <th>Ilość</th>
+<!--                    <th>Ilość <a sd:pagination-sort="tasma" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
+                    <th>Opis</th>
+<!--                    <th>Opis <a sd:pagination-sort="opis" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
+                    <th>Opcje</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="element : ${lista}">
+                    <td th:text="${element.id}"></td>
+                    <td><input class="uk-checkbox" type="checkbox"></td>
+                    <td th:text="${element.tasma}"></td>
+                    <td th:text="${element.opis}"></td>
+                    <td>
+                        <a th:href="@{/opcje/tasma/edytuj/{id} (id=${element.id})}" uk-icon="icon: file-edit"uk-tooltip="Edytuj"></a>
+                        <a th:href="@{/opcje/tasma/szczegoly/{id} (id=${element.id})}" uk-icon="icon: info" uk-tooltip="Szczegóły"></a>
+                        <a th:href="@{/opcje/tasma/usun/{id} (id=${(element.id)})}" uk-icon="icon: trash" uk-tooltip="Usuń"></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+<!--            <div class="col-sm-6">-->
+<!--                <div sd:pagination-summary="">info</div>-->
+<!--            </div>-->
+<!--            <div class="col-sm-6">-->
+<!--                <nav class="pull-right">-->
+<!--                    <ul class="uk-pagination uk-flex-center" sd:pagination="full">-->
+<!--                        <li class="uk-disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>-->
+<!--                        </li>-->
+<!--                        <li class="uk-active"><a href="#">1<span class="sr-only"></span></a></li>-->
+<!--                    </ul>-->
+<!--                </nav>-->
+<!--            </div>-->
+
+             <div class="uk-padding"></div>
+
+    </div>
+
+</body>
+</html>
