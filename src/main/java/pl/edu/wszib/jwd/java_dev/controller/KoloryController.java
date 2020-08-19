@@ -7,8 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.edu.wszib.jwd.java_dev.WS2812;
 import pl.edu.wszib.jwd.java_dev.dao.KoloryDao;
 import pl.edu.wszib.jwd.java_dev.model.Kolory;
+
+import java.awt.*;
 
 @Controller
 @PropertySource("classpath:messages.properties")
@@ -66,6 +69,12 @@ public class KoloryController {
 
     @GetMapping("opcje/kolory/szczegoly/{id}")
     public String szczegoly(@PathVariable Long id, Model model) {
+
+        WS2812.get().init(64); //init a chain of 64 LEDs
+        WS2812.get().clear();
+        WS2812.get().setPixelColor(0,Color.RED); //sets the color of the fist LED to red
+        WS2812.get().show();
+
         Kolory kolory = koloryDao.findById(id).get();
         model.addAttribute("koloryszczegoly", kolory);
         return "koloryszczegoly";
