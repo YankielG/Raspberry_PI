@@ -22,12 +22,12 @@ public class Szafy {
     private String szafa;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
-    @Column(name = "od_led")
+    @Column(name = "odLed")
+    private int odLed;
 
-    private int od_led;
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
-    @Column(name = "do_led")
-    private int do_led;
+    @Column(name = "doLed")
+    private int doLed;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
     @Column(name = "opis")
@@ -60,20 +60,20 @@ public class Szafy {
         this.szafa = szafa;
     }
 
-    public int getOd_led() {
-        return od_led;
+    public int getOdLed() {
+        return odLed;
     }
 
-    public void setOd_led(int od_led) {
-        this.od_led = od_led;
+    public void setOdLed(int odLed) {
+        this.odLed = odLed;
     }
 
-    public int getDo_led() {
-        return do_led;
+    public int getDoLed() {
+        return doLed;
     }
 
-    public void setDo_led(int do_led) {
-        this.do_led = do_led;
+    public void setDoLed(int doLed) {
+        this.doLed = doLed;
     }
 
     public String getOpis() {

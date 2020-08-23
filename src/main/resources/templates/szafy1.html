@@ -43,16 +43,16 @@
         <thead>
         <tr>
             <!--            <th>Id</th>-->
-            <th>Id <a sd:pagination-sort="id" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <th sec:authorize="hasAnyAuthority('ADMIN')">Id <a sd:pagination-sort="id" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
             <!--            <th th:colspan="2"></th>-->
             <!--            <th>Wybór</th>-->
-            <th>Wybór <a sd:pagination-sort="wybor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <th sec:authorize="hasAnyAuthority('ADMIN')">Wybór <a sd:pagination-sort="wybor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
             <!--            <th>Nazwa</th>-->
             <th>Nazwa <a sd:pagination-sort="szafa" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
             <!--            <th>Od LED</th>-->
-            <th>Od LED <a sd:pagination-sort="od_led" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <th>Od LED <a sd:pagination-sort="odLed" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
             <th>Do LED</th>
-            <th>Do LED <a sd:pagination-sort="do_led" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <th>Do LED <a sd:pagination-sort="doLed" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
             <!--            <th>Opis</th>-->
             <th>Opis <a sd:pagination-sort="opis" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
             <th>Opcje</th>
@@ -63,8 +63,8 @@
             <td th:text="${element.id}"></td>
             <td><input class="uk-checkbox" type="checkbox"></td>
             <td th:text="${element.szafa}"></td>
-            <td th:text="${element.od_led}"></td>
-            <td th:text="${element.do_led}"></td>
+            <td th:text="${element.odLed}"></td>
+            <td th:text="${element.doLed}"></td>
             <td th:text="${element.opis}"></td>
             <td>
                 <a th:href="@{/opcje/szafy/edytuj/{id} (id=${element.id})}" uk-icon="icon: file-edit" uk-tooltip="Edytuj"></a>

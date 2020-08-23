@@ -42,7 +42,7 @@ public class LogowanieUstawienia extends WebSecurityConfigurerAdapter {
                         "select uzytkownik, haslo, true " +
                                 "from Profil where uzytkownik=?")
                 .authoritiesByUsernameQuery(
-                        "select uzytkownik, uzytkownik_typ from Profil where uzytkownik=?")
+                        "select uzytkownik, uzytkownikTyp from Profil where uzytkownik=?")
 ////                .passwordEncoder(new StandardPasswordEncoder("53Kr3t"));
                 .passwordEncoder(bCryptPasswordEncoder);
 

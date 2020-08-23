@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sd="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.w3.org/1999/xhtml"
       th:replace="~{fragments/szablon :: szablon(~{::.container})}">
 <body>
 
@@ -47,18 +48,18 @@
         <thead>
         <tr>
 <!--            <th class="uk-table-shrink">Id</th>-->
-            <th>Id<a sd:pagination-sort="id" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <th sec:authorize="hasAnyAuthority('ADMIN')">Id<a sd:pagination-sort="id" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
             <!--            <th th:colspan="2"></th>-->
 <!--            <th>Wybór</th>-->
-            <th>Wybór <a sd:pagination-sort="wybor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <th sec:authorize="hasAnyAuthority('ADMIN')">Wybór <a sd:pagination-sort="wybor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
 <!--            <th>Nazwa</th>-->
             <th>Nazwa<a sd:pagination-sort="kolor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
 <!--            <th>Składowa R (Red)</th>-->
-            <th>Składowa R (Red)<a sd:pagination-sort="skladnik_R" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <th>Składowa R (Red)<a sd:pagination-sort="skladnikR" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
 <!--            <th>Składowa G (Green)</th>-->
-            <th>Składowa G (Green)<a sd:pagination-sort="skladnik_G" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>>
+            <th>Składowa G (Green)<a sd:pagination-sort="skladnikG" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>>
 <!--            <th>Składowa B (Blue)</th>-->
-            <th>Składowa B (Blue)<a sd:pagination-sort="skladnik_B" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <th>Składowa B (Blue)<a sd:pagination-sort="skladnikB" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
 <!--            <th>Opis</th>-->
             <th>Opis<a sd:pagination-sort="opis" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
             <th>Opcje</th>
@@ -66,12 +67,12 @@
         </thead>
         <tbody>
         <tr th:each="element : ${lista}">
-            <td th:text="${element.id}"></td>
-            <td><input class="uk-checkbox" type="checkbox"></td>
+            <td sec:authorize="hasAnyAuthority('ADMIN')" th:text="${element.id}"></td>
+            <td sec:authorize="hasAnyAuthority('ADMIN')"><input class="uk-checkbox" type="checkbox"></td>
             <td th:text="${element.kolor}"></td>
-            <td th:text="${element.skladnik_R}"></td>
-            <td th:text="${element.skladnik_G}"></td>
-            <td th:text="${element.skladnik_B}"></td>
+            <td th:text="${element.skladnikR}"></td>
+            <td th:text="${element.skladnikG}"></td>
+            <td th:text="${element.skladnikB}"></td>
             <td th:text="${element.opis}"></td>
             <td>
                 <a th:href="@{/opcje/kolory/edytuj/{id} (id=${element.id})}" uk-icon="icon: file-edit"uk-tooltip="Edytuj"></a>

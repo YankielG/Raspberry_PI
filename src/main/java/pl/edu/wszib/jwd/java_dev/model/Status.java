@@ -19,20 +19,20 @@ public class Status {
     private String nazwa;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
-    @Column(name = "od_led")
+    @Column(name = "odLed")
+    private int odLed;
 
-    private int od_led;
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
-    @Column(name = "do_led")
-    private int do_led;
+    @Column(name = "doLed")
+    private int doLed;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
     @Column(name = "kolor")
     private String kolor;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
-    @Column(name = "skladnik_calosc")
-    private String skladnik_calosc;
+    @Column(name = "rgb")
+    private String rgb;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
     @Column(name = "opis")
@@ -69,20 +69,20 @@ public class Status {
         this.nazwa = nazwa;
     }
 
-    public int getOd_led() {
-        return od_led;
+    public int getOdLed() {
+        return odLed;
     }
 
-    public void setOd_led(int od_led) {
-        this.od_led = od_led;
+    public void setOdLed(int odLed) {
+        this.odLed = odLed;
     }
 
-    public int getDo_led() {
-        return do_led;
+    public int getDoLed() {
+        return doLed;
     }
 
-    public void setDo_led(int do_led) {
-        this.do_led = do_led;
+    public void setDoLed(int doLed) {
+        this.doLed = doLed;
     }
 
     public String getKolor() {
@@ -93,12 +93,12 @@ public class Status {
         this.kolor = kolor;
     }
 
-    public String getSkladnik_calosc() {
-        return skladnik_calosc;
+    public String getRgb() {
+        return rgb;
     }
 
-    public void setSkladnik_calosc(String skladnik_calosc) {
-        this.skladnik_calosc = skladnik_calosc;
+    public void setRgb(String rgb) {
+        this.rgb = rgb;
     }
 
     public String getOpis() {

@@ -69,9 +69,9 @@
                     <td sec:authorize="hasAnyAuthority('ADMIN')" th:text="${element.id}"></td>
                     <td sec:authorize="hasAnyAuthority('ADMIN')"><input class="uk-checkbox" type="checkbox"></td>
                     <td th:text="${element.kolor}"></td>
-                    <td th:text="${element.skladnik_R}"></td>
-                    <td th:text="${element.skladnik_G}"></td>
-                    <td th:text="${element.skladnik_B}"></td>
+                    <td th:text="${element.skladnikR}"></td>
+                    <td th:text="${element.skladnikG}"></td>
+                    <td th:text="${element.skladnikB}"></td>
                     <td th:text="${element.opis}"></td>
                     <td>
                         <a th:href="@{/opcje/kolory/edytuj/{id} (id=${element.id})}" uk-icon="icon: file-edit"uk-tooltip="Edytuj"></a>

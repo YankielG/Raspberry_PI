@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sd="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.w3.org/1999/xhtml"
       th:replace="~{fragments/szablon :: szablon(~{::.container})}">
 <body>
 
@@ -47,26 +48,26 @@
         </div>
     </div>
 
-    <a th:href="@{/status/wstaw}" uk-icon="icon: copy" uk-tooltip="Dodaj"></a>
-    <a th:href="@{/status/czysc}" uk-icon="icon: trash" uk-tooltip="Wyczyść"></a>
+    <a sec:authorize="hasAnyAuthority('MANAGER','ADMIN')" th:href="@{/status/wstaw}" uk-icon="icon: copy" uk-tooltip="Dodaj"></a>
+    <a sec:authorize="hasAnyAuthority('MANAGER','ADMIN')" th:href="@{/status/czysc}" uk-icon="icon: trash" uk-tooltip="Wyczyść"></a>
     <table class="uk-table uk-table-stripped uk-table-hover uk-table-small" uk-sortable>
         <thead>
         <tr>
 <!--            <th>Id</th>-->
-                        <th>Id <a sd:pagination-sort="id" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <th sec:authorize="hasAnyAuthority('ADMIN')">Id <a sd:pagination-sort="id" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
             <!--            <th th:colspan="2"></th>-->
 <!--            <th>Wybór</th>-->
-                        <th>Wybór <a sd:pagination-sort="wybor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+                        <th sec:authorize="hasAnyAuthority('ADMIN')">Wybór <a sd:pagination-sort="wybor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
 <!--            <th>Szafa</th>-->
                         <th>Szafy <a sd:pagination-sort="nazwa" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
 <!--            <th>Od LED</th>-->
-                        <th>Od LED <a sd:pagination-sort="od_led" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+                        <th>Od LED <a sd:pagination-sort="odLed" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
 <!--            <th>Do LED</th>-->
-                        <th>Do LED <a sd:pagination-sort="do_led" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+                        <th>Do LED <a sd:pagination-sort="doLed" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
 <!--            <th>Kolor</th>-->
                         <th>Kolor <a sd:pagination-sort="kolor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
 <!--            <th>RGB</th>-->
-                        <th>RGB <a sd:pagination-sort="skladnik_calosc" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+                        <th>RGB <a sd:pagination-sort="rgb" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
 <!--            <th>Opis</th>-->
                         <th>Opis <a sd:pagination-sort="opis" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
 <!--            <th>Komentarz</th>-->
@@ -76,13 +77,13 @@
         </thead>
         <tbody>
         <tr th:each="element : ${lista}">
-            <td th:text="${element.id}"></td>
-            <td><input class="uk-checkbox" type="checkbox"></td>
+            <td sec:authorize="hasAnyAuthority('ADMIN')" th:text="${element.id}"></td>
+            <td sec:authorize="hasAnyAuthority('ADMIN')"><input class="uk-checkbox" type="checkbox"></td>
             <td th:text="${element.nazwa}"></td>
-            <td th:text="${element.od_led}"></td>
-            <td th:text="${element.do_led}"></td>
+            <td th:text="${element.odLed}"></td>
+            <td th:text="${element.doLed}"></td>
             <td th:text="${element.kolor}"></td>
-            <td th:text="${element.skladnik_calosc}"></td>
+            <td th:text="${element.rgb}"></td>
             <td th:text="${element.opis}"></td>
             <td th:text="${element.komentarz}"></td>
             <td>
@@ -94,17 +95,17 @@
         </tbody>
     </table>
 
-    <!--            <div class="col-sm-6">-->
-    <!--                <div sd:pagination-summary="">info</div>-->
-    <!--            </div>-->
-    <!--            <div class="col-sm-6">-->
-    <!--                <nav class="pull-right">-->
-    <!--                    <ul class="uk-pagination uk-flex-center" sd:pagination="full">-->
-    <!--                        <li class="uk-disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>-->
-    <!--                        <li class="uk-active"><a href="#">1<span class="sr-only"></span></a></li>-->
-    <!--                    </ul>-->
-    <!--                </nav>-->
-    <!--            </div>-->
+<!--                <div class="col-sm-6">-->
+<!--                    <div sd:pagination-summary="">info</div>-->
+<!--                </div>-->
+<!--                <div class="col-sm-6">-->
+<!--                    <nav class="pull-right">-->
+<!--                        <ul class="uk-pagination uk-flex-center" sd:pagination="full">-->
+<!--                            <li class="uk-disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>-->
+<!--                            <li class="uk-active"><a href="#">1<span class="sr-only"></span></a></li>-->
+<!--                        </ul>-->
+<!--                    </nav>-->
+                </div>
 
     <div class="uk-padding"></div>
 

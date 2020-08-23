@@ -37,37 +37,37 @@ public class Profil {
     private String haslo;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
-    @Column(name = "uzytkownik_aktywny")
-    private Boolean uzytkownik_aktywny;
+    @Column(name = "uzytkownikAktywny")
+    private Boolean uzytkownikAktywny;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
-    @Column(name = "uzytkownik_id")
-    private Long uzytkownik_id;
+    @Column(name = "uzytkownikId")
+    private Long uzytkownikId;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
-    @Column(name = "uzytkownik_typ")
-    private String uzytkownik_typ;
+    @Column(name = "uzytkownikTyp")
+    private String uzytkownikTyp;
 
     //    Data ostatniej edycji
 //    @Temporal(TemporalType.DATE)
 //    @Column(name = "uzytkownik_d_up", updatable = false, nullable = false)
-    @Column(name = "uzytkownik_d_up")
+    @Column(name = "uzytkownikDataUp")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date uzytkownik_data_up;
+    private Date uzytkownikDataUp;
 
     //    Data tworzenia uzytkownika
 //    @Temporal(TemporalType.DATE)
-//    @Column(name = "uzytkownik_d_tw", updatable = false, nullable = false)
-    @Column(name = "uzytkownik_d_tw")
+//    @Column(name = "uzytkownikDataTw", updatable = false, nullable = false)
+    //    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-//    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-    private Date uzytkownik_data_tw;
-//    private LocalDateTime uzytkownik_data_tw = LocalDateTime.now();
-//    private Date uzytkownik_data_tw = new Date();
+    @Column(name = "uzytkownikDataTw")
+    private Date uzytkownikDataTw;
+//    private LocalDateTime uzytkownikDataTw = LocalDateTime.now();
+//    private Date uzytkownikDataTw = new Date();
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
-    @Column(name = "uzytkownik_uwagi")
-    private String uzytkownik_uwagi;
+    @Column(name = "uzytkownikUwagi")
+    private String uzytkownikUwagi;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
     @Column(name = "opis")
@@ -129,52 +129,52 @@ public class Profil {
         this.haslo = haslo;
     }
 
-    public Boolean getUzytkownik_aktywny() {
-        return uzytkownik_aktywny;
+    public Boolean getUzytkownikAktywny() {
+        return uzytkownikAktywny;
     }
 
-    public void setUzytkownik_aktywny(Boolean uzytkownik_aktywny) {
-        this.uzytkownik_aktywny = uzytkownik_aktywny;
+    public void setUzytkownikAktywny(Boolean uzytkownikAktywny) {
+        this.uzytkownikAktywny = uzytkownikAktywny;
     }
 
-    public Long getUzytkownik_id() {
-        return uzytkownik_id;
+    public Long getUzytkownikId() {
+        return uzytkownikId;
     }
 
-    public void setUzytkownik_id(Long uzytkownik_id) {
-        this.uzytkownik_id = uzytkownik_id;
+    public void setUzytkownikId(Long uzytkownikId) {
+        this.uzytkownikId = uzytkownikId;
     }
 
-    public String getUzytkownik_typ() {
-        return uzytkownik_typ;
+    public String getUzytkownikTyp() {
+        return uzytkownikTyp;
     }
 
-    public void setUzytkownik_typ(String uzytkownik_typ) {
-        this.uzytkownik_typ = uzytkownik_typ;
+    public void setUzytkownikTyp(String uzytkownikTyp) {
+        this.uzytkownikTyp = uzytkownikTyp;
     }
 
-    public Date getUzytkownik_data_up() {
-        return uzytkownik_data_up;
+    public Date getUzytkownikDataUp() {
+        return uzytkownikDataUp;
     }
 
-    public void setUzytkownik_data_up(Date uzytkownik_data_up) {
-        this.uzytkownik_data_up = uzytkownik_data_up;
+    public void setUzytkownikDataUp(Date uzytkownikDataUp) {
+        this.uzytkownikDataUp = uzytkownikDataUp;
     }
 
-    public Date getUzytkownik_data_tw() {
-        return uzytkownik_data_tw;
+    public Date getUzytkownikDataTw() {
+        return uzytkownikDataTw;
     }
 
-    public void setUzytkownik_data_tw(Date uzytkownik_data_tw) {
-        this.uzytkownik_data_tw = uzytkownik_data_tw;
+    public void setUzytkownikDataTw(Date uzytkownikDataTw) {
+        this.uzytkownikDataTw = uzytkownikDataTw;
     }
 
-    public String getUzytkownik_uwagi() {
-        return uzytkownik_uwagi;
+    public String getUzytkownikUwagi() {
+        return uzytkownikUwagi;
     }
 
-    public void setUzytkownik_uwagi(String uzytkownik_uwagi) {
-        this.uzytkownik_uwagi = uzytkownik_uwagi;
+    public void setUzytkownikUwagi(String uzytkownikUwagi) {
+        this.uzytkownikUwagi = uzytkownikUwagi;
     }
 
     public String getOpis() {

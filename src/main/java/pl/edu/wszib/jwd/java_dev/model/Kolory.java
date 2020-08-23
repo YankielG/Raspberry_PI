@@ -19,20 +19,20 @@ public class Kolory {
     private String kolor;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
-    @Column(name = "skladnik_R")
-    private Integer skladnik_R;
+    @Column(name = "skladnikR")
+    private Integer skladnikR;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
-    @Column(name = "skladnik_G")
-    private Integer skladnik_G;
+    @Column(name = "skladnikG")
+    private Integer skladnikG;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
-    @Column(name = "skladnik_B")
-    private Integer skladnik_B;
+    @Column(name = "skladnikB")
+    private Integer skladnikB;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
-    @Column(name = "skladnik_calosc")
-    private Integer skladnik_calosc;
+    @Column(name = "rgb")
+    private Integer rgb;
 
  //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
     @Column(name = "opis")
@@ -65,36 +65,36 @@ public class Kolory {
         this.kolor = kolor;
     }
 
-    public Integer getSkladnik_R() {
-        return skladnik_R;
+    public Integer getSkladnikR() {
+        return skladnikR;
     }
 
-    public void setSkladnik_R(Integer skladnik_R) {
-        this.skladnik_R = skladnik_R;
+    public void setSkladnikR(Integer skladnikR) {
+        this.skladnikR = skladnikR;
     }
 
-    public Integer getSkladnik_G() {
-        return skladnik_G;
+    public Integer getSkladnikG() {
+        return skladnikG;
     }
 
-    public void setSkladnik_G(Integer skladnik_G) {
-        this.skladnik_G = skladnik_G;
+    public void setSkladnikG(Integer skladnikG) {
+        this.skladnikG = skladnikG;
     }
 
-    public Integer getSkladnik_B() {
-        return skladnik_B;
+    public Integer getSkladnikB() {
+        return skladnikB;
     }
 
-    public void setSkladnik_B(Integer skladnik_B) {
-        this.skladnik_B = skladnik_B;
+    public void setSkladnikB(Integer skladnikB) {
+        this.skladnikB = skladnikB;
     }
 
-    public Integer getSkladnik_calosc() {
-        return skladnik_calosc;
+    public Integer getRgb() {
+        return rgb;
     }
 
-    public void setSkladnik_calosc(Integer skladnik_calosc) {
-        this.skladnik_calosc = skladnik_calosc;
+    public void setRgb(Integer rgb) {
+        this.rgb = rgb;
     }
 
     public String getOpis() {

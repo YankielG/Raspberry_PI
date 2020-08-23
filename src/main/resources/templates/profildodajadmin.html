@@ -35,14 +35,14 @@
         <div class="uk-margin">
             <div class="uk-form-label">Wł/Wył użytkownika</div>
             <div class="uk-form-controls uk-form-controls-text">
-                <label><input class="uk-radio" type="radio" name="true" th:value="true" th:field="*{uzytkownik_aktywny}">uzytkownik Wł.</label><br>
-                <label><input class="uk-radio" type="radio" name="false" th:value="false" th:field="*{uzytkownik_aktywny}">uzytkownik wył.</label>
+                <label><input class="uk-radio" type="radio" name="true" th:value="true" th:field="*{uzytkownikAktywny}">uzytkownik Wł.</label><br>
+                <label><input class="uk-radio" type="radio" name="false" th:value="false" th:field="*{uzytkownikAktywny}">uzytkownik wył.</label>
             </div>
         </div>
 
         <div class="uk-button uk-form-controls uk-margin">
             <label>Rodzaj użytkownik </label>
-            <select th:field="*{uzytkownik_typ}" type="text" class="uk-input">
+            <select th:field="*{uzytkownikTyp}" type="text" class="uk-input">
                 <option value="<null>"> -- </option>
                 <option th:value="'GOSC'">Gosc</option>
                 <option th:value="'USER'">Użytkownik</option>
@@ -53,7 +53,7 @@
 
                 <div class="uk-margin">
                     <label>Użytkownik ID</label>
-                    <input th:field="*{uzytkownik_id}" type="number" class="uk-input" step="1" min="1" max="100" required="required">
+                    <input th:field="*{uzytkownikId}" type="number" class="uk-input" step="1" min="1" max="100" required="required">
                 </div>
 
         <!--        <div class="uk-button uk-form-controls uk-margin">-->
@@ -76,13 +76,13 @@
 
         <div class="uk-margin">
             <label>Opis</label>
-            <textarea th:field="*{uzytkownik_uwagi}" class="uk-textarea" rows="2"></textarea>
+            <textarea th:field="*{opis}" class="uk-textarea" rows="2"></textarea>
         </div>
 
 
         <div class="uk-margin">
             <label>Użytkownik Uwagi</label>
-            <textarea th:field="*{uzytkownik_uwagi}" class="uk-textarea" rows="2"></textarea>
+            <textarea th:field="*{uzytkownikUwagi}" class="uk-textarea" rows="2"></textarea>
         </div>
 
         <input th:field="*{id}" type="number" hidden>

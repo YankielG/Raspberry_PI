@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/szablon :: szablon(~{::.container})}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      th:replace="~{fragments/szablon :: szablon(~{::.container})}">
 <body>
 
 <div class="container">
@@ -37,9 +38,9 @@
         <thead>
         <tr>
             <!--            <th class="uk-table-shrink">Id</th>-->
-            <th>Id <a sd:pagination-sort="id" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <th sec:authorize="hasAnyAuthority('ADMIN')">Id <a sd:pagination-sort="id" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
             <!--            <th th:colspan="2"></th>-->
-            <th>Wybór</th>
+<!--            <th>Wybór</th>-->
             <th>Wybór <a sd:pagination-sort="wybor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
             <!--            <th>Ilość</th>-->
             <th>Ilość <a sd:pagination-sort="tasma" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
@@ -50,8 +51,8 @@
         </thead>
         <tbody>
         <tr th:each="element : ${lista}">
-            <td th:text="${element.id}"></td>
-            <td><input class="uk-checkbox" type="checkbox"></td>
+            <td sec:authorize="hasAnyAuthority('ADMIN')" th:text="${element.id}"></td>
+            <td sec:authorize="hasAnyAuthority('ADMIN')"><input class="uk-checkbox" type="checkbox"></td>
             <td th:text="${element.tasma}"></td>
             <td th:text="${element.opis}"></td>
             <td>

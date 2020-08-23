@@ -35,16 +35,16 @@ public class Konto {
     private String haslo;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
-    @Column(name = "uzytkownik_aktywny")
-    private Boolean uzytkownik_aktywny;
+    @Column(name = "uzytkownikAktywny")
+    private Boolean uzytkownikAktywny;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
-    @Column(name = "uzytkownik_id")
-    private Long uzytkownik_id;
+    @Column(name = "uzytkownikId")
+    private Long uzytkownikId;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
-    @Column(name = "uzytkownik_typ")
-    private String uzytkownik_typ;
+    @Column(name = "uzytkownikTyp")
+    private String uzytkownikTyp;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
     @Column(name = "opis")
@@ -109,28 +109,28 @@ public class Konto {
         this.haslo = haslo;
     }
 
-    public Boolean getUzytkownik_aktywny() {
-        return uzytkownik_aktywny;
+    public Boolean getUzytkownikAktywny() {
+        return uzytkownikAktywny;
     }
 
-    public void setUzytkownik_aktywny(Boolean uzytkownik_aktywny) {
-        this.uzytkownik_aktywny = uzytkownik_aktywny;
+    public void setUzytkownikAktywny(Boolean uzytkownikAktywny) {
+        this.uzytkownikAktywny = uzytkownikAktywny;
     }
 
-    public Long getUzytkownik_id() {
-        return uzytkownik_id;
+    public Long getUzytkownikId() {
+        return uzytkownikId;
     }
 
-    public void setUzytkownik_id(Long uzytkownik_id) {
-        this.uzytkownik_id = uzytkownik_id;
+    public void setUzytkownikId(Long uzytkownikId) {
+        this.uzytkownikId = uzytkownikId;
     }
 
-    public String getUzytkownik_typ() {
-        return uzytkownik_typ;
+    public String getUzytkownikTyp() {
+        return uzytkownikTyp;
     }
 
-    public void setUzytkownik_typ(String uzytkownik_typ) {
-        this.uzytkownik_typ = uzytkownik_typ;
+    public void setUzytkownikTyp(String uzytkownikTyp) {
+        this.uzytkownikTyp = uzytkownikTyp;
     }
 
     public String getOpis() {
