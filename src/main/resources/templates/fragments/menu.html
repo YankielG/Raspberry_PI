@@ -38,12 +38,12 @@
                 <a href="#">Opcje</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li sec:authorize="hasAnyAuthority('MANAGER','USER')"><a th:href="@{/opcje/tasma}">Tasma LED</a></li>
-                        <li sec:authorize="hasAnyAuthority('MANAGER','USER')"><a th:href="@{/opcje/kolory}">Kolory</a></li>
-                        <li sec:authorize="hasAnyAuthority('MANAGER','USER')"><a th:href="@{/opcje/szafy}">Szafy</a></li>
+                        <li sec:authorize="hasAnyAuthority('MANAGER','ADMIN')"><a th:href="@{/opcje/tasma}">Tasma LED</a></li>
+                        <li sec:authorize="hasAnyAuthority('MANAGER','ADMIN')"><a th:href="@{/opcje/kolory}">Kolory</a></li>
+                        <li sec:authorize="hasAnyAuthority('MANAGER','ADMIN')"><a th:href="@{/opcje/szafy}">Szafy</a></li>
 <!--                        <li sec:authorize="hasAnyAuthority('MANAGER','USER')"><a th:href="@{/opcje/konto}">Konto</a></li>-->
-                        <li sec:authorize="hasAnyAuthority('MANAGER','USER')"><a th:href="@{/opcje/info}">Info</a></li>
-                        <li class="uk-parent"><a th:href="@{/opcje/profil}">Profil</a></li>
+                        <li sec:authorize="hasAnyAuthority('MANAGER','ADMIN')"><a th:href="@{/opcje/info}">Info</a></li>
+                        <li sec:authorize="hasAnyAuthority('MANAGER','ADMIN')"><a th:href="@{/opcje/profil}">Profil</a></li>
                     </ul>
                 </div>
             </li>

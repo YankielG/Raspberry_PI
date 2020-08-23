@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sd="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.w3.org/1999/xhtml"
       th:replace="~{fragments/szablon :: szablon(~{::.container})}">
 <body>
 
@@ -14,10 +15,10 @@
             <table class="uk-table uk-table-stripped uk-table-hover uk-table-small" uk-sortable>
                 <thead>
                 <tr>
-                    <th>Id</th>
+                    <th sec:authorize="hasAnyAuthority('ADMIN')">Id</th>
 <!--                    <th>Id <a sd:pagination-sort="id" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
                     <!--            <th th:colspan="2"></th>-->
-                    <th>Wybór</th>
+                    <th sec:authorize="hasAnyAuthority('ADMIN')">Wybór</th>
 <!--                    <th>Wybór <a sd:pagination-sort="wybor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
                     <th>Data</th>
 <!--                    <th>Data <a sd:pagination-sort="data" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
@@ -32,8 +33,8 @@
                 </thead>
                 <tbody>
                 <tr th:each="element : ${lista1}">
-                    <td th:text="${element.id}"></td>
-                    <td><input class="uk-checkbox" type="checkbox"></td>
+                    <td sec:authorize="hasAnyAuthority('ADMIN')" th:text="${element.id}"></td>
+                    <td sec:authorize="hasAnyAuthority('ADMIN')"><input class="uk-checkbox" type="checkbox"></td>
                     <td th:text="${#calendars.format(element.data, 'dd-MM-yyyy')}"></td>
                     <!--            <td th:text="${#calendars.format(element.data, 'dd-MM-yyyy HH:mm:ss')}"></td>-->
                     <!--            <td th:text="${element.data}"></td>-->
