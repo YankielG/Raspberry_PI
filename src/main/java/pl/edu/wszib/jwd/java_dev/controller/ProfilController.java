@@ -105,11 +105,11 @@ public class ProfilController {
     @PostMapping("opcje/profil/zapisz")
     public String zapisz(Profil profil) {
         profil.setHaslo(bCryptPasswordEncoder.encode(profil.getHaslo()));
-        profil.setUzytkownik_uwagi("Tworzenie");
-        profil.setUzytkownik_typ("USER");
-//        profil.setUzytkownik_id("Nowy_0000");
-        profil.setUzytkownik_aktywny(true);
-        profil.setUzytkownik_data_tw(new Date());
+        profil.setUzytkownikUwagi("Tworzenie");
+        profil.setUzytkownikTyp("USER");
+//        profil.setUzytkownikid("Nowy_0000");
+        profil.setUzytkownikAktywny(true);
+        profil.setUzytkownikDataTw(new Date());
         profilDao.save(profil);
         return "redirect:/opcje/profil";
     }
@@ -117,11 +117,11 @@ public class ProfilController {
     @PostMapping("rejestracja/zapisz")
     public String rejestracjazapisz(Profil profil) {
         profil.setHaslo(bCryptPasswordEncoder.encode(profil.getHaslo()));
-        profil.setUzytkownik_uwagi("Rejestracja");
-        profil.setUzytkownik_typ("USER");
-//        profil.setUzytkownik_id("Nowy_0000");
-        profil.setUzytkownik_aktywny(true);
-        profil.setUzytkownik_data_tw(new Date());
+        profil.setUzytkownikUwagi("Rejestracja");
+        profil.setUzytkownikTyp("ADMIN");
+//        profil.setUzytkownikid("Nowy_0000");
+        profil.setUzytkownikAktywny(true);
+        profil.setUzytkownikDataTw(new Date());
         profilDao.save(profil);
         return "profilsukces";
     }
@@ -149,7 +149,7 @@ public class ProfilController {
 
     @PostMapping("opcje/profil/admin")
     public String adminzapisz(Profil profil) {
-        profil.setUzytkownik_data_up(new Date());
+        profil.setUzytkownikDataUp(new Date());
         profilDao.save(profil);
         return "redirect:/opcje/profil";
     }

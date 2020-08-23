@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/szablon :: szablon(~{::.container})}">
+<body>
+
+<div class="container">
+    <div class="uk-panel">
+        <img class="uk-align-left uk-margin-remove-adjacent" src="/tlo.JPG" width="60" height="28" alt="info">
+        <h2 class="uk-heading-divider" th:text="#{opcje.tytul.jasnosc.szczegoly}" style="position:center;"></h2>
+    </div>
+
+    <form style="width:300px; margin: auto" th:object="${jasnoscszczegoly}" th:action="@{/opcje/jasnosc/zapisz}"
+          method="post">
+        <div class="uk-margin">
+            <label>Nazwa: </label>
+            <td th:text="${jasnoscszczegoly.nazwa}">...Brak danych...</td>
+        </div>
+        <div class="uk-margin">
+
+            <div class="uk-margin">
+                <label>Jasność: </label>
+                <td th:text="${jasnoscszczegoly.jasnosc}">...Brak danych...</td>
+            </div>
+
+            <div class="uk-margin">
+                <label>Opis: </label>
+                <td th:text="${jasnoscszczegoly.opis}">...Brak danych...</td>
+            </div>
+
+            <input th:field="*{id}" type="number" hidden>
+
+            <a th:href="@{/opcje/jasnosc}"><input class="uk-button uk-button-danger" type="button" value="Zamknij"></a>
+        </div>
+    </form>
+
+    <div class="uk-padding"></div>
+
+</div>
+
+</body>
+</html>

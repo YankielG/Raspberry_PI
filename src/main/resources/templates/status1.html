@@ -43,6 +43,7 @@
             <p>Do LED - nr. końcowej diody led w sterowanej szafie.</p>
             <p>Kolor - kolor na który ma być podświetlona szafa.</p>
             <p>RGB - odpowiednik w postaci RGB wybranego koloru.</p>
+            <p>Jasność - zmiana jasności świecenia.</p>
             <p>Opis - adnotacja do szafy.</p>
             <p>Komentarz - powód zmiany koloru.</p>
         </div>
@@ -69,7 +70,9 @@
 <!--            <th>RGB</th>-->
                         <th>RGB <a sd:pagination-sort="rgb" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
 <!--            <th>Opis</th>-->
-                        <th>Opis <a sd:pagination-sort="opis" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+                         <th>Jasność <a sd:pagination-sort="jasnosc" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+<!--            <th>Jasność/th>-->
+            <th>Opis <a sd:pagination-sort="opis" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
 <!--            <th>Komentarz</th>-->
                         <th>Komentarz <a sd:pagination-sort="komentarz" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
             <th>Opcje</th>
@@ -84,6 +87,7 @@
             <td th:text="${element.doLed}"></td>
             <td th:text="${element.kolor}"></td>
             <td th:text="${element.rgb}"></td>
+            <td th:text="${element.jasnosc}"></td>
             <td th:text="${element.opis}"></td>
             <td th:text="${element.komentarz}"></td>
             <td>

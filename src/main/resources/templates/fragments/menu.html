@@ -11,6 +11,7 @@
             <li class="uk-parent"><a th:href="@{/status}">Status</a></li>
             <li class="uk-parent"><a th:href="@{/opcje/tasma}" sec:authorize="hasAnyAuthority('MANAGER','ADMIN')">Tasma LED</a></li>
             <li class="uk-parent"><a th:href="@{/opcje/kolory}" sec:authorize="hasAnyAuthority('MANAGER','ADMIN')">Kolory</a></li>
+            <li class="uk-parent"><a th:href="@{/opcje/jasnosc}" sec:authorize="hasAnyAuthority('MANAGER','ADMIN')">Jasność</a></li>
             <li class="uk-parent"><a th:href="@{/opcje/szafy}" sec:authorize="hasAnyAuthority('MANAGER','ADMIN')">Szafy</a></li>
             <li class="uk-parent"><a th:href="@{/opcje/konto}" sec:authorize="hasAnyAuthority('MANAGER','ADMIN')">Konto</a></li>
             <li class="uk-parent"><a th:href="@{/opcje/Profil}">Profil</a></li>
@@ -40,6 +41,7 @@
                     <ul class="uk-nav uk-navbar-dropdown-nav">
                         <li sec:authorize="hasAnyAuthority('MANAGER','ADMIN')"><a th:href="@{/opcje/tasma}">Tasma LED</a></li>
                         <li sec:authorize="hasAnyAuthority('MANAGER','ADMIN')"><a th:href="@{/opcje/kolory}">Kolory</a></li>
+                        <li sec:authorize="hasAnyAuthority('MANAGER','ADMIN')"><a th:href="@{/opcje/jasnosc}">Jasność</a></li>
                         <li sec:authorize="hasAnyAuthority('MANAGER','ADMIN')"><a th:href="@{/opcje/szafy}">Szafy</a></li>
 <!--                        <li sec:authorize="hasAnyAuthority('MANAGER','USER')"><a th:href="@{/opcje/konto}">Konto</a></li>-->
                         <li sec:authorize="hasAnyAuthority('MANAGER','ADMIN')"><a th:href="@{/opcje/info}">Info</a></li>
@@ -69,6 +71,7 @@
                 <li><a th:href="@{/status}">Status/a></li>
                 <li><a th:href="@{/opcje/tasma}">Tasma LED</a></li>
                 <li><a th:href="@{/opcje/kolory}">Kolory</a></li>
+                <li><a th:href="@{/opcje/jasnosc}">Jasność</a></li>
                 <li><a th:href="@{/opcje/szafy}">Szafy</a></li>
                 <li><a th:href="@{/opcje/konto}">Konto</a></li>
                 <li><a th:href="@{/opcje/profil}">Profil</a></li>

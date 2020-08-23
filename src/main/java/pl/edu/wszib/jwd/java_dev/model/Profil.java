@@ -73,6 +73,9 @@ public class Profil {
     @Column(name = "opis")
     private String opis;
 
+    public Profil() {
+    }
+
     public Long getId() {
         return id;
     }

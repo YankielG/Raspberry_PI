@@ -35,6 +35,10 @@ public class Status {
     private String rgb;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
+    @Column(name = "jasnosc")
+    private String jasnosc;
+
+    //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
     @Column(name = "opis")
     private String opis;
 
@@ -99,6 +103,14 @@ public class Status {
 
     public void setRgb(String rgb) {
         this.rgb = rgb;
+    }
+
+    public String getJasnosc() {
+        return jasnosc;
+    }
+
+    public void setJasnosc(String jasnosc) {
+        this.jasnosc = jasnosc;
     }
 
     public String getOpis() {

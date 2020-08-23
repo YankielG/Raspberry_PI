@@ -28,7 +28,12 @@
 
         <div class="uk-margin">
             <label>RGB</label>
-            <input th:field="*{rgb}" type="text"  class="uk-input" required="required">
+            <input th:field="*{rgb}" type="color"  class="uk-input" required="required">
+        </div>
+
+        <div class="uk-margin">
+            <label>Jasność</label>
+            <input th:field="*{jasnosc}" type="range" min="1" max="255" step="1"   class="uk-input" required="required">
         </div>
 
         <div class="uk-margin">

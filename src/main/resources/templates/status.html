@@ -42,11 +42,12 @@
                     <p>Do LED - nr. końcowej diody led w sterowanej szafie.</p>
                     <p>Kolor - kolor na który ma być podświetlona szafa.</p>
                     <p>RGB - odpowiednik w postaci RGB wybranego koloru.</p>
+                    <p>Jasność - zmiana jasności świecenia.</p>
                     <p>Opis - adnotacja do szafy.</p>
                     <p>Komentarz - powód zmiany koloru.</p>
                 </div>
             </div>
-        
+
             <a sec:authorize="hasAnyAuthority('MANAGER','ADMIN')" th:href="@{/status/wstaw}" uk-icon="icon: copy" uk-tooltip="Dodaj"></a>
             <a sec:authorize="hasAnyAuthority('MANAGER','ADMIN')" th:href="@{/status/czysc}" uk-icon="icon: trash" uk-tooltip="Wyczyść"></a>
             <table class="uk-table uk-table-stripped uk-table-hover uk-table-small" uk-sortable>
@@ -67,6 +68,8 @@
                     <!--            <th>Kolor <a sd:pagination-sort="kolor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
                     <th>RGB</th>
                     <!--            <th>RGB <a sd:pagination-sort="rgb" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
+                    <th>Jasność</th>
+                    <!--            <th>Jasność <a sd:pagination-sort="jasnoasc" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
                     <th>Opis</th>
                     <!--            <th>Opis <a sd:pagination-sort="opis" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
                     <th>Komentarz</th>
@@ -83,6 +86,7 @@
                     <td th:text="${element.doLed}"></td>
                     <td th:text="${element.kolor}"></td>
                     <td th:text="${element.rgb}"></td>
+                    <td th:text="${element.jasnosc}"></td>
                     <td th:text="${element.opis}"></td>
                     <td th:text="${element.komentarz}"></td>
                     <td>

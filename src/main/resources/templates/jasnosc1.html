@@ -7,7 +7,7 @@
 <div class="container">
     <div class="uk-panel">
         <img class="uk-align-left uk-margin-remove-adjacent" src="/tlo.JPG" width="60" height="28" alt="info">
-        <h2 class="uk-heading-divider" th:text="#{opcje.tytul.kolory}" style="position:center;"></h2>
+        <h2 class="uk-heading-divider" th:text="#{opcje.tytul.jasnosc}" style="position:center;"></h2>
     </div>
 
     <!--            <span uk-icon="icon: info" uk-tooltip="Info"></span>-->
@@ -33,17 +33,15 @@
     <a uk-icon="info" uk-tooltip="Info" href="#modal-center" uk-toggle></a>
     <div id="modal-center" class="uk-flex-top" uk-modal>
         <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-            <p>Nazwa -  nzawa pod jaką będzie widniał dany kolor.</p>
-            <p>Składowa R (Red) - wartośc od 0 do 255 - ilość koloru czerwonego w barwie</p>
-            <p>Składowa G (Green) - wartośc od 0 do 255 - ilość koloru zielonego w barwie</p>
-            <p>Składowa B (Blue) - wartośc od 0 do 255 - ilość koloru niebieskiego w barwie</p>
-            <p>Opis - adnotacja do stworzonego koloru</p>
+            <p>Nazwa -  nzawa pod jaką będzie widniała dana jasość.</p>
+            <p>Jasność - wartość od 0 do 255 - jasność swiecenia diody.</p>
+            <p>Opis - adnotacja do stworzonej jasności.</p>
             </ul>
         </div>
     </div>
 
-    <a th:href="@{/opcje/kolory/wstaw}" uk-icon="icon: copy" uk-tooltip="Dodaj"></a>
-    <a th:href="@{/opcje/kolory/czysc}" uk-icon="icon: trash" uk-tooltip="Wyczyść"></a>
+    <a th:href="@{/opcje/jasnosc/wstaw}" uk-icon="icon: copy" uk-tooltip="Dodaj"></a>
+    <a th:href="@{/opcje/jasnosc/czysc}" uk-icon="icon: trash" uk-tooltip="Wyczyść"></a>
     <table class="uk-table uk-table-striped uk-table-hover uk-table-small" uk-sortable>
         <thead>
         <tr>
@@ -54,14 +52,8 @@
             <th sec:authorize="hasAnyAuthority('ADMIN')">Wybór <a sd:pagination-sort="wybor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
 <!--            <th>Nazwa</th>-->
             <th>Nazwa<a sd:pagination-sort="kolor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
-<!--            <th>Składowa R (Red)</th>-->
-            <th>Składowa R (Red)<a sd:pagination-sort="skladnikR" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
-<!--            <th>Składowa G (Green)</th>-->
-            <th>Składowa G (Green)<a sd:pagination-sort="skladnikG" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>>
-<!--            <th>Składowa B (Blue)</th>-->
-            <th>Składowa B (Blue)<a sd:pagination-sort="skladnikB" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
-<!--            <th>Opis</th>-->
-            <th>RGB<a sd:pagination-sort="rgb" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+<!--            <th>Jasnosc</th>-->
+            <th>Jasność<a sd:pagination-sort="jasnosc" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
             <!--            <th>Opis</th>-->
             <th>Opis<a sd:pagination-sort="opis" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
             <th>Opcje</th>
@@ -71,16 +63,13 @@
         <tr th:each="element : ${lista}">
             <td sec:authorize="hasAnyAuthority('ADMIN')" th:text="${element.id}"></td>
             <td sec:authorize="hasAnyAuthority('ADMIN')"><input class="uk-checkbox" type="checkbox"></td>
-            <td th:text="${element.kolor}"></td>
-            <td th:text="${element.skladnikR}"></td>
-            <td th:text="${element.skladnikG}"></td>
-            <td th:text="${element.skladnikB}"></td>
-            <td th:text="${element.rgb}"></td>
+            <td th:text="${element.nazwa}"></td>
+            <td th:text="${element.jasnosc}"></td>
             <td th:text="${element.opis}"></td>
             <td>
-                <a th:href="@{/opcje/kolory/edytuj/{id} (id=${element.id})}" uk-icon="icon: file-edit"uk-tooltip="Edytuj"></a>
-                <a th:href="@{/opcje/kolory/szczegoly/{id} (id=${element.id})}" uk-icon="icon: info" uk-tooltip="Szczegóły"></a>
-                <a th:href="@{/opcje/kolory/usun/{id} (id=${(element.id)})}" uk-icon="icon: trash" uk-tooltip="Usuń"></a>
+                <a th:href="@{/opcje/jasnosc/edytuj/{id} (id=${element.id})}" uk-icon="icon: file-edit"uk-tooltip="Edytuj"></a>
+                <a th:href="@{/opcje/jasnosc/szczegoly/{id} (id=${element.id})}" uk-icon="icon: info" uk-tooltip="Szczegóły"></a>
+                <a th:href="@{/opcje/jasnosc/usun/{id} (id=${(element.id)})}" uk-icon="icon: trash" uk-tooltip="Usuń"></a>
             </td>
         </tr>
         </tbody>
