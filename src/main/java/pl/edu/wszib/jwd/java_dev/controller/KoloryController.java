@@ -7,11 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.edu.wszib.jwd.java_dev.WS2812;
 import pl.edu.wszib.jwd.java_dev.dao.KoloryDao;
 import pl.edu.wszib.jwd.java_dev.model.Kolory;
-
-import java.awt.*;
 
 @Controller
 @PropertySource("classpath:messages.properties")

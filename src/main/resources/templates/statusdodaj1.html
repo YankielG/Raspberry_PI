@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
-      th:replace="~{fragments/szablon :: szablon(~{::.container})}">
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/szablon :: szablon(~{::.container})}">
 <body>
 
 <div class="container">
@@ -12,33 +11,36 @@
 
         <div class="uk-margin">
             <label>Rząd</label>
-            <td sec:authorize="hasAnyAuthority('USER')" th:text="${statusdodaj.rzad}">...Brak danych...</td>
-            <input sec:authorize="hasAnyAuthority('MANAGER','ADMIN')" th:field="*{rzad}" type="text"  class="uk-input" required="required">
+            <input th:field="*{rzad}" type="text"  class="uk-input" required="required">
         </div>
 
         <div class="uk-margin">
             <label>Szafa</label>
-            <td sec:authorize="hasAnyAuthority('USER')" th:text="${statusdodaj.nazwa}">...Brak danych...</td>
-            <select sec:authorize="hasAnyAuthority('MANAGER','ADMIN')" th:field="*{nazwa}" type="text" class="uk-input" required="required">
-                <option value=""> -- </option>
-                <option th:each="szafa : ${Szafy}"th:value="${szafa.szafa}" th:utext="${szafa.szafa}"/>
-            </select>
+            <input th:field="*{nazwa}" type="text"  class="uk-input" required="required">
+        </div>
+
+        <div>
+        <label>Od LED</label>
+            <input th:field="*{odLed}" type="number"  class="uk-input" step="1" min="1" max="900" required="required">
+        </div>
+        <div>
+        <label>Do LED</label>
+            <input th:field="*{doLed}" type="number"  class="uk-input" step="1" min="1" max="900" required="required">
         </div>
 
         <div class="uk-margin">
             <label>Kolor</label>
-            <select th:field="*{kolor}" type="text" class="uk-input" required="required">
-                <option value=""> -- </option>
-                <option th:each="kolor: ${Kolory}"th:value="${kolor.kolor}" th:utext="${kolor.kolor}"/>
-            </select>
+            <input th:field="*{kolor}" type="text"  class="uk-input" required="required">
+        </div>
+
+        <div class="uk-margin">
+            <label>RGB</label>
+            <input th:field="*{rgb}" type="color"  class="uk-input" required="required">
         </div>
 
         <div class="uk-margin">
             <label>Jasność</label>
-            <select th:field="*{jasnosc}" type="text" class="uk-input" required="required">
-                <option value=""> -- </option>
-                <option th:each="jasnosc : ${Jasnosci}"th:value="${jasnosc.jasnosc}" th:utext="${jasnosc.nazwa}"/>
-            </select>
+            <input th:field="*{jasnosc}" type="range" min="1" max="255" step="1"   class="uk-input" required="required">
         </div>
 
         <div class="uk-margin">

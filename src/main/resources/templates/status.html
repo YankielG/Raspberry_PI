@@ -58,15 +58,17 @@
                     <!--            <th th:colspan="2"></th>-->
                     <th sec:authorize="hasAnyAuthority('ADMIN')">Wybór</th>
                     <!--            <th>Wybór <a sd:pagination-sort="wybor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
+                    <th>Rząd</th>
+                    <!--            <th>rzad <a sd:pagination-sort="nazwa" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
                     <th>Szafa</th>
-                    <!--            <th>Szafy <a sd:pagination-sort="nazwa" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
-                    <th>Od LED</th>
+                    <!--            <th>Szafa <a sd:pagination-sort="rzad" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
+                    <th sec:authorize="hasAnyAuthority('MANAGER','ADMIN')">Od LED</th>
                     <!--            <th>Od LED <a sd:pagination-sort="odled" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
-                    <th>Do LED</th>
+                    <th sec:authorize="hasAnyAuthority('MANAGER','ADMIN')">Do LED</th>
                     <!--            <th>Do LED <a sd:pagination-sort="doled" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
                     <th>Kolor</th>
                     <!--            <th>Kolor <a sd:pagination-sort="kolor" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
-                    <th>RGB</th>
+                    <th th:colspan="2">RGB</th>
                     <!--            <th>RGB <a sd:pagination-sort="rgb" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
                     <th>Jasność</th>
                     <!--            <th>Jasność <a sd:pagination-sort="jasnoasc" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>-->
@@ -81,10 +83,12 @@
                 <tr th:each="element : ${lista}">
                     <td sec:authorize="hasAnyAuthority('ADMIN')" th:text="${element.id}"></td>
                     <td sec:authorize="hasAnyAuthority('ADMIN')"><input class="uk-checkbox" type="checkbox"></td>
+                    <td th:text="${element.rzad}"></td>
                     <td th:text="${element.nazwa}"></td>
-                    <td th:text="${element.odLed}"></td>
-                    <td th:text="${element.doLed}"></td>
+                    <td sec:authorize="hasAnyAuthority('MANAGER','ADMIN')" th:text="${element.odLed}"></td>
+                    <td sec:authorize="hasAnyAuthority('MANAGER','ADMIN')" th:text="${element.doLed}"></td>
                     <td th:text="${element.kolor}"></td>
+                    <td th:attr="bgcolor=${element.rgb}"></td>
                     <td th:text="${element.rgb}"></td>
                     <td th:text="${element.jasnosc}"></td>
                     <td th:text="${element.opis}"></td>
@@ -92,7 +96,7 @@
                     <td>
                         <a th:href="@{/status/edytuj/{id} (id=${element.id})}" uk-icon="icon: file-edit" uk-tooltip="Edytuj"></a>
                         <a th:href="@{/status/szczegoly/{id} (id=${element.id})}" uk-icon="icon: info" uk-tooltip="Szczegóły"></a>
-                        <a th:href="@{/status/usun/{id} (id=${(element.id)})}" uk-icon="icon: trash" uk-tooltip="Usuń"></a>
+                        <a sec:authorize="hasAnyAuthority('MANAGER','ADMIN')" th:href="@{/status/usun/{id} (id=${(element.id)})}" uk-icon="icon: trash" uk-tooltip="Usuń"></a>
                     </td>
                 </tr>
                 </tbody>

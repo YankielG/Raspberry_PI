@@ -61,7 +61,7 @@
 <!--            <th>Składowa B (Blue)</th>-->
             <th>Składowa B (Blue)<a sd:pagination-sort="skladnikB" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
 <!--            <th>Opis</th>-->
-            <th>RGB<a sd:pagination-sort="rgb" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
+            <th th:colspan="2">RGB<a sd:pagination-sort="rgb" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
             <!--            <th>Opis</th>-->
             <th>Opis<a sd:pagination-sort="opis" uk-icon="icon: list; ratio: 0.9" uk-tooltip="Sortuj"></a></th>
             <th>Opcje</th>
@@ -75,6 +75,7 @@
             <td th:text="${element.skladnikR}"></td>
             <td th:text="${element.skladnikG}"></td>
             <td th:text="${element.skladnikB}"></td>
+            <td th:attr="bgcolor=${element.rgb}"></td>
             <td th:text="${element.rgb}"></td>
             <td th:text="${element.opis}"></td>
             <td>

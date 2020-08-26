@@ -15,9 +15,12 @@ public class Status {
     private boolean wybor;
 
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
+    @Column(name = "rzad")
+    private String rzad;
+
+    //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
     @Column(name = "nazwa")
     private String nazwa;
-
     //    @NotEmpty(message = "*Pole nie może być puste!. Proszę o wypełnienie pola")
     @Column(name = "odLed")
     private int odLed;
@@ -63,6 +66,14 @@ public class Status {
 
     public void setWybor(boolean wybor) {
         this.wybor = wybor;
+    }
+
+    public String getRzad() {
+        return rzad;
+    }
+
+    public void setRzad(String rzad) {
+        this.rzad = rzad;
     }
 
     public String getNazwa() {

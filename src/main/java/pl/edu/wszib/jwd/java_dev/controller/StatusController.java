@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import pl.edu.wszib.jwd.java_dev.dao.StatusDao;
+import pl.edu.wszib.jwd.java_dev.dao.*;
 import pl.edu.wszib.jwd.java_dev.model.Status;
+
+import java.awt.*;
 
 @Controller
 @PropertySource("classpath:messages.properties")
@@ -20,6 +22,21 @@ public class StatusController {
 
     @Autowired
     private StatusDao statusDao;
+
+    @Autowired
+    private TasmaDao tasmaDao;
+
+    @Autowired
+    private SzafyDao szafyDao;
+
+    @Autowired
+    private KoloryDao koloryDao;
+
+    @Autowired
+    private JasnoscDao jasnoscDao;
+
+//    @Autowired
+//    private RzadDao rzadcDao;
 
     @GetMapping("status")
     public String status(Model model) {
@@ -49,9 +66,18 @@ public class StatusController {
         return "redirect:/status";
     }
 
-    @GetMapping("status/wstaw")
+    @GetMapping("status/wstaw1")
     public String wstaw(Model model) {
         model.addAttribute("statusdodaj", new Status());
+        return "statusdodaj1";
+    }
+    @GetMapping("status/wstaw")
+    public String wstaw1(Model model) {
+        model.addAttribute("statusdodaj", new Status());
+        model.addAttribute("Szafy", szafyDao.findAll());
+        model.addAttribute("Kolory", koloryDao.findAll());
+        model.addAttribute("Jasnosci", jasnoscDao.findAll());
+//        model.addAttribute("Rzad", rzadDao.findAll());
         return "statusdodaj";
     }
 
@@ -63,6 +89,17 @@ public class StatusController {
 
     @GetMapping("status/edytuj/{id}")
     public String edytuj(@PathVariable Long id, Model model) {
+        Status status = statusDao.findById(id).get();
+        model.addAttribute("Szafy", szafyDao.findAll());
+        model.addAttribute("Kolory", koloryDao.findAll());
+        model.addAttribute("Jasnosci", jasnoscDao.findAll());
+//        model.addAttribute("Rzad", rzadDao.findAll());
+        model.addAttribute("statusdodaj", status);
+        return "statusdodaj";
+    }
+
+    @GetMapping("status/edytuj1/{id}")
+    public String edytuj1(@PathVariable Long id, Model model) {
         Status status = statusDao.findById(id).get();
         model.addAttribute("statusdodaj", status);
         return "statusdodaj";

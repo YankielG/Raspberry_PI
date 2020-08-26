@@ -10,6 +10,11 @@
     
     <form style="width:300px; margin: auto" th:object="${statusszczegoly}" th:action="@{/status/zapisz}" method="post">
         <div class="uk-margin">
+            <label>Rząd: </label>
+            <td th:text="${statusszczegoly.rzad}"></td>
+        </div>
+
+        <div class="uk-margin">
             <label>Szafa: </label>
             <td th:text="${statusszczegoly.nazwa}"></td>
         </div>
